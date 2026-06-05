@@ -20,27 +20,17 @@
 /* ─────────────────────────────────────────
    2. CSS Variables & Base
 ───────────────────────────────────────── */
-/* ─────────────────────────────────────────
-   2. CSS Variables & Base
-───────────────────────────────────────── */
 :root {
-    /* 배경은 기존의 깊은 다크 톤 유지 */
     --bg:          #06060e;
     --bg-card:     #0b0b18;
-    --bg-hover:    #12122b; /* 마우스 오버 시 조금 더 밝게 반응하도록 수정 */
+    --bg-hover:    #12122b;
     --modal-bg:    #090914;
-
-    /* 포인트 색상: 기존 아쿠아마린에서 채도와 명도를 극대화한 '네온 민트'로 변경 */
     --accent:      #00e6c3; 
     --accent-dim:  rgba(0, 230, 195, 0.15);
     --accent-glow: rgba(0, 230, 195, 0.15);
-
-    /* 텍스트 색상: 전반적인 밝기와 채도 대폭 향상 */
-    --text:        #ffffff; /* 메인 텍스트 (이름, 제목): 완전한 흰색으로 확 눈에 띄게 */
-    --text-dim:    #a8b6cc; /* 서브 텍스트 (본문, 설명): 칙칙한 회색에서 밝고 청량한 쿨그레이로 변경 */
-    --text-muted:  #7081a0; /* 메타 텍스트 (01, 02 등): 기존에 거의 안 보이던 색을 읽기 편한 중간 톤으로 변경 */
-
-    /* 테두리 색상: 선명도 향상 */
+    --text:        #ffffff;
+    --text-dim:    #a8b6cc;
+    --text-muted:  #7081a0;
     --border:      rgba(0, 230, 195, 0.35);
     --border-card: rgba(255, 255, 255, 0.12);
 }
@@ -52,7 +42,6 @@ html { scroll-behavior: smooth; }
 body {
     background: var(--bg);
     color: var(--text);
-    /* 여기서 전체 폰트를 에이투지체로 통일합니다 */
     font-family: 'AtoZ', sans-serif;
     font-weight: 300;
     min-height: 100vh;
@@ -415,8 +404,16 @@ footer span {
 @media (max-width: 700px) {
     .grid { grid-template-columns: 1fr 1fr; }
     .blk:nth-child(2), .blk:nth-child(3) { grid-column: span 2; }
-    .skill-grid { grid-template-columns: repeat(2, 1fr); }
     .hero-name { font-size: 3.2rem; }
+    
+    .hero-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+    .hero-video-wrap {
+        max-width: 100%;
+    }
 }
 
 @media (max-width: 440px) {
@@ -425,7 +422,8 @@ footer span {
     .blk:nth-child(2), .blk:nth-child(3) { grid-column: span 1; }
     .sheet-head { padding: 1.2rem 1.2rem 1rem; }
     .sheet-body { padding: 1.2rem 1.2rem 2.5rem; }
-    .hero-header {
+    
+    .hero-profile-wrap {
         flex-direction: column;
         align-items: flex-start;
         gap: 1rem;
@@ -437,20 +435,25 @@ footer span {
 }
 
 /* ─────────────────────────────────────────
-   8. Profile Layout & Skill List (추가된 CSS)
+   8. Profile Layout & Skill List
 ───────────────────────────────────────── */
 
-/* 프로필 헤더 레이아웃 */
 .hero-header {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 0.5rem;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
     opacity: 0;
-    animation: rise 0.7s ease forwards 0.18s; /* 이름과 같이 나타나도록 통일 */
+    animation: rise 0.7s ease forwards 0.18s;
 }
 
-/* 기존 hero-name 애니메이션 분리 (중복 방지) */
+.hero-profile-wrap {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
 .hero-name {
     opacity: 1; 
     animation: none;
@@ -466,7 +469,24 @@ footer span {
     flex-shrink: 0;
 }
 
-/* 상세 스택 리스트 레이아웃 */
+.hero-video-wrap {
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    margin-top: 20px;
+    overflow: hidden;
+    border: 1px solid var(--border-card);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+    flex-shrink: 0;
+}
+
+.hero-video-wrap iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
 .skill-list {
     display: flex;
     flex-direction: column;
