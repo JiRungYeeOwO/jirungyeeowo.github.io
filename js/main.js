@@ -1,11 +1,8 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  // 1. 외부 모달 HTML 파일들을 비동기로 불러와 삽입
     await loadModals();
 
-    // 2. 타이핑 애니메이션 실행
     initTypewriter();
 
-    // 3. 카드 3D 틸트 효과 및 키보드 접근성 실행
     initCards();
 });
 
@@ -74,7 +71,6 @@ function initCards() {
         });
     }
 
-    // 3D Tilt 효과
     card.addEventListener('mousemove', e => {
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
