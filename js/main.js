@@ -12,15 +12,37 @@ async function loadModals() {
     const container = document.getElementById('modal-container');
 
     for (const id of modals) {
+        try {
+            const response = await fetch(`modals/${id}.html`);
+            if (response.ok) {
+                const html = await response.text();
+                container.insertAdjacentHTML('beforeend', html);
+            }
+        } catch (error) {
+            console.error(`모달 로드 실패: modals/${id}.html`, error);
+        }
+    }
+
+    // ⭐ 모달 껍데기가 다 만들어진 후 텍스트 데이터를 불러옵니다.
+    await loadAboutData();
+}
+
+/* ─────────────────────────────────────────
+   JSON 데이터 불러오기
+───────────────────────────────────────── */
+async function loadAboutData() {
     try {
-        const response = await fetch(`modals/${id}.html`);
+        const response = await fetch('data/about.json'); 
+        
         if (response.ok) {
-        const html = await response.text();
-        container.insertAdjacentHTML('beforeend', html);
+            const data = await response.json();
+            
+            document.getElementById('about-intro1').textContent = data.intro1;
+            document.getElementById('about-intro2').textContent = data.intro2;
+            document.getElementById('about-interests').textContent = data.interests;
         }
     } catch (error) {
-        console.error(`모달 로드 실패: modals/${id}.html`, error);
-    }
+        console.error('소개글 데이터 로드 실패:', error);
     }
 }
 
