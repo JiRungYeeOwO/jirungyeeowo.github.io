@@ -111,3 +111,12 @@ function initTypewriter() {
     }
     setTimeout(typeWriter, 800); 
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const encodedPhone = "MDEwLTMxMDktOTM5OA=="; 
+    
+    const phoneEl = document.getElementById('safe-phone');
+    if (phoneEl) {
+        phoneEl.textContent = atob(encodedPhone);
+    }
+});
