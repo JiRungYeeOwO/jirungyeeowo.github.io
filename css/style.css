@@ -220,9 +220,10 @@ body::before {
 
 .blk { animation: rise 0.6s ease forwards; opacity: 0; }
 .blk:nth-child(1) { animation-delay: 0.78s; }
-.blk:nth-child(2) { animation-delay: 0.88s; grid-column: span 2; }
-.blk:nth-child(3) { animation-delay: 0.96s; grid-column: span 2; }
-.blk:nth-child(4) { animation-delay: 1.04s; }
+.blk:nth-child(2) { animation-delay: 0.88s;}
+.blk:nth-child(3) { animation-delay: 0.96s; }
+.blk:nth-child(4) { animation-delay: 1.04s; grid-column: span 2; }
+.blk:nth-child(5) { animation-delay: 1.12s; }
 
 .card {
     position: relative;
@@ -294,7 +295,8 @@ body::before {
 .card-desc {
     font-size: 0.8rem;
     color: var(--text-dim);
-    line-height: 1.65;
+    line-height: 1.8;
+    letter-spacing: 0.02em;
     transform: translateZ(20px);
 }
 
@@ -436,7 +438,8 @@ footer span {
 ───────────────────────────────────────── */
 @media (max-width: 700px) {
     .grid { grid-template-columns: 1fr 1fr; }
-    .blk:nth-child(2), .blk:nth-child(3) { grid-column: span 2; }
+    .blk:nth-child(4) { grid-column: span 1;}
+    .blk:nth-child(5) { grid-column: span 2;}
     .hero-name { font-size: 3.2rem; }
     
     .hero-header {
@@ -592,7 +595,7 @@ footer span {
     border: 1px solid var(--border-card) !important;
     background: var(--bg-card) !important;
     border-radius: 8px;
-    padding: 1.5rem 0 1rem;
+    padding: 1.5rem 0.5rem 1rem;
     color: var(--text-dim) !important;
 }
 
