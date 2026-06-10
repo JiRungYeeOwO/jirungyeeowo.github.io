@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     initTypewriter();
 
     initCards();
+
+    initGitHubCalendar();
 });
 
 /* 모달 컴포넌트 불러오기 (Fetch API) */
@@ -128,6 +130,18 @@ function initTypewriter() {
     }
     }
     setTimeout(typeWriter, 800); 
+}
+
+function initGitHubCalendar() {
+    if (typeof GitHubCalendar !== 'undefined' && document.querySelector('.calendar')) {
+        GitHubCalendar(".calendar", "JiRungYeeOwO", { responsive: true, tooltips: false, global_stats: false }).then(function() {
+            const calEl = document.querySelector('.calendar');
+            if (calEl) calEl.style.minHeight = "100px";
+            
+            const legend = document.querySelector('.contrib-legend');
+            if (legend) legend.style.display = "none";
+        }).catch(err => console.error("GitHub Calendar load error:", err));
+    }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
