@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 /* 모달 컴포넌트 불러오기 (Fetch API) */
 async function loadModals() {
-    const modals = ['about', 'projects', 'skills', 'career'];
+    const modals = ['about', 'projects', 'skills', 'career', 'certs'];
     const container = document.getElementById('modal-container');
 
     for (const id of modals) {
