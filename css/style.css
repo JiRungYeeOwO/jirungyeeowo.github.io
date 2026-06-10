@@ -583,3 +583,96 @@ footer span {
     color: var(--text-dim);
     line-height: 1.6;
 }
+
+/* ─────────────────────────────────────────
+   GitHub Calendar Dark Mode Custom
+───────────────────────────────────────── */
+
+.calendar {
+    border: 1px solid var(--border-card) !important;
+    background: var(--bg-card) !important;
+    border-radius: 8px;
+    padding: 1.5rem 0 1rem;
+    color: var(--text-dim) !important;
+}
+
+.calendar text.wday,
+.calendar text.month,
+.calendar .ContributionCalendar-label {
+    fill: var(--text-dim) !important;
+    font-size: 10px !important;
+}
+
+.calendar rect[data-level="0"],
+.calendar .ContributionCalendar-day[data-level="0"],
+.calendar td.ContributionCalendar-day[data-level="0"] { 
+    fill: #161b22 !important;
+    background-color: #161b22 !important;
+    outline: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+.calendar rect[data-level="1"],
+.calendar .ContributionCalendar-day[data-level="1"],
+.calendar td.ContributionCalendar-day[data-level="1"] { 
+    fill: #0e4429 !important; 
+    background-color: #0e4429 !important; 
+}
+
+.calendar rect[data-level="2"],
+.calendar .ContributionCalendar-day[data-level="2"],
+.calendar td.ContributionCalendar-day[data-level="2"] { 
+    fill: #006d32 !important; 
+    background-color: #006d32 !important; 
+}
+
+.calendar rect[data-level="3"],
+.calendar .ContributionCalendar-day[data-level="3"],
+.calendar td.ContributionCalendar-day[data-level="3"] { 
+    fill: #26a641 !important; 
+    background-color: #26a641 !important; 
+}
+
+.calendar rect[data-level="4"],
+.calendar .ContributionCalendar-day[data-level="4"],
+.calendar td.ContributionCalendar-day[data-level="4"] { 
+    fill: #39d353 !important; 
+    background-color: #39d353 !important; 
+}
+
+.calendar .sr-only,
+.calendar h2,
+.calendar a,
+.calendar .js-year-link {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    position: absolute !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+.calendar {
+    overflow: hidden !important;
+    display: flex;
+    justify-content: center;
+}
+
+.calendar .js-calendar-graph {
+    width: 100% !important;
+    overflow: hidden !important;
+}
+
+.calendar svg.js-calendar-graph-svg {
+    width: 100% !important;
+    height: auto !important;
+}
+
+.calendar table.ContributionCalendar-grid {
+    width: 100% !important;
+    min-width: 0 !important;
+    table-layout: fixed !important;
+}
+
+.calendar table.ContributionCalendar-grid td {
+    border-radius: 2px !important;
+}
