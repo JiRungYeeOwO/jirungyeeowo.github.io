@@ -1,78 +1,86 @@
 <div class="overlay" id="ov-skills" onclick="handleBg(event,'skills')">
     <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="t-skills">
         <div class="sheet-head">
-        <h2 class="sheet-title" id="t-skills">기술 스택</h2>
-        <button class="btn-close" onclick="panelClose('skills')" aria-label="닫기">✕</button>
+            <h2 class="sheet-title" id="t-skills">기술 스택</h2>
+            <button class="btn-close" onclick="panelClose('skills')" aria-label="닫기">✕</button>
         </div>
         <div class="sheet-body">
-
-        <div class="m-section">
-            <p class="m-label">// Engine & Languages</p>
-            <div class="skill-list">
-            <div class="skill-item">
-                <div class="skill-icon">🎮</div>
-                <div class="skill-info">
-                <h4 class="skill-name">Unity 3D/2D</h4>
-                <p class="skill-lvl">고급 오브젝트 풀링(Object Pooling) 및 싱글톤 매니저 패턴을 적용하여 메모리(GC) 스파이크를 제어할 수 있습니다.</p>
+            <div class="m-section">
+                <p class="m-label">// Engine & Languages</p>
+                <div class="skill-list">
+                    <div class="skill-item">
+                        <i class="devicon-unity-plain skill-icon"></i>
+                        <div class="skill-info">
+                        <h4 class="skill-name">Unity 3D/2D</h4>
+                        <p class="skill-lvl">오브젝트 풀링(Object Pooling) 및 싱글톤 매니저 패턴을 적용하여 메모리(GC) 스파이크를 제어할 수 있습니다.</p>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="devicon-csharp-plain skill-icon"></i>
+                        <div class="skill-info">
+                        <h4 class="skill-name">C#</h4>
+                        <p class="skill-lvl">주력 언어. 척력 기반 등의 물리/수학적 연산 로직을 구현하고 모듈 간 결합도를 낮추는 객체 지향적 코드를 작성합니다.</p>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="devicon-cplusplus-plain skill-icon"></i>
+                        <div class="skill-info">
+                        <h4 class="skill-name">C++</h4>
+                        <p class="skill-lvl">기본적인 문법과 메모리 관리 구조(포인터, 참조)에 대한 기초적인 이해를 갖추고 있습니다.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="skill-item">
-                <div class="skill-icon">⚙️</div>
-                <div class="skill-info">
-                <h4 class="skill-name">C#</h4>
-                <p class="skill-lvl">주력 언어. 척력 기반 등의 물리/수학적 연산 로직을 구현하고 모듈 간 결합도를 낮추는 객체 지향적 코드를 작성합니다.</p>
+            <div class="m-section">
+                <p class="m-label">// Backend & Database</p>
+                <div class="skill-list">
+                    <div class="skill-item">
+                        <i class="devicon-spring-original skill-icon"></i>
+                        <div class="skill-info">
+                            <h4 class="skill-name">Java & Spring</h4>
+                            <p class="skill-lvl">Java의 객체 지향 특성을 잘 이해하고 있으며, Spring 프레임워크를 활용해 기본적인 백엔드 API 서버를 구축하고 클라이언트와 연동해 본 경험이 있습니다.</p>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="devicon-mysql-plain-wordmark skill-icon"></i>
+                        <div class="skill-info">
+                            <h4 class="skill-name">DBMS & SQL</h4>
+                            <p class="skill-lvl">관계형 데이터베이스(RDBMS)의 설계 구조를 이해하고 있으며, SQL 쿼리를 직접 작성하여 데이터를 효율적으로 저장, 조회 및 관리할 수 있습니다.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="skill-item">
-                <div class="skill-icon">🖥️</div>
-                <div class="skill-info">
-                <h4 class="skill-name">C++</h4>
-                <p class="skill-lvl">기본적인 문법과 메모리 관리 구조(포인터, 참조)에 대한 기초적인 이해를 갖추고 있습니다.</p>
+            <div class="m-section">
+                <p class="m-label">// Network</p>
+                <div class="skill-list">
+                    <div class="skill-item">
+                        <i class="devicon-photonengine-plain skill-icon"></i>
+                        <div class="skill-info">
+                        <h4 class="skill-name">Photon Fusion</h4>
+                        <p class="skill-lvl">Host 모드 기반의 멀티플레이어 환경에서 클라이언트 간의 상태 동기화 및 네트워크 로직을 구현할 수 있습니다.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            </div>
-        </div>
-
-        <div class="m-section">
-            <p class="m-label">// Graphics & Network</p>
-            <div class="skill-list">
-            <div class="skill-item">
-                <div class="skill-icon">✨</div>
-                <div class="skill-info">
-                <h4 class="skill-name">URP / HDRP / DX9</h4>
-                <p class="skill-lvl">렌더링 파이프라인의 구조를 이해하고, 프로젝트 요구사항에 맞춘 그래픽 환경 최적화 경험이 있습니다.</p>
+            <div class="m-section">
+                <p class="m-label">// Architecture & Tools</p>
+                <div class="skill-list">
+                    <div class="skill-item">
+                        <i class="devicon-amazonwebservices-plain-wordmark skill-icon"></i>
+                        <div class="skill-info">
+                        <h4 class="skill-name">AWS</h4>
+                        <p class="skill-lvl">캡스톤 프로젝트를 통해 EC2/RDS 기반의 서버 배포 경험이 있습니다.</p>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="devicon-github-original skill-icon"></i>
+                        <div class="skill-info">
+                        <h4 class="skill-name">Git & GitHub</h4>
+                        <p class="skill-lvl">Git을 이용한 형상 관리에 익숙하며 능동적인 사용이 가능합니다.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="skill-item">
-                <div class="skill-icon">🌐</div>
-                <div class="skill-info">
-                <h4 class="skill-name">Photon Fusion</h4>
-                <p class="skill-lvl">Host 모드 기반의 멀티플레이어 환경에서 클라이언트 간의 상태 동기화 및 네트워크 로직을 구현할 수 있습니다.</p>
-                </div>
-            </div>
-            </div>
-        </div>
-
-        <div class="m-section">
-            <p class="m-label">// Architecture & Tools</p>
-            <div class="skill-list">
-            <div class="skill-item">
-                <div class="skill-icon">📐</div>
-                <div class="skill-info">
-                <h4 class="skill-name">PlantUML & Architecture</h4>
-                <p class="skill-lvl">코드 작성 전 UML 다이어그램을 활용해 클래스 구조와 관계를 사전 설계하는 과정을 중요시합니다.</p>
-                </div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-icon">☁️</div>
-                <div class="skill-info">
-                <h4 class="skill-name">AWS & Git</h4>
-                <p class="skill-lvl">Git을 이용한 버전 관리에 익숙하며, 캡스톤 프로젝트를 통해 EC2/RDS 기반의 서버 배포 경험이 있습니다.</p>
-                </div>
-            </div>
-            </div>
-        </div>
-
         </div>
     </div>
 </div>
