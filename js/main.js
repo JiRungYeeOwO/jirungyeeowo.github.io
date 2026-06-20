@@ -39,8 +39,20 @@ async function loadAboutData() {
         if (response.ok) {
             const data = await response.json();
             
-            document.getElementById('about-intro1').textContent = data.intro1;
-            document.getElementById('about-intro2').textContent = data.intro2;
+            // 소제목과 본문 삽입
+            document.getElementById('about-t1').textContent = data.p1_title;
+            document.getElementById('about-d1').textContent = data.p1_desc;
+            
+            document.getElementById('about-t2').textContent = data.p2_title;
+            document.getElementById('about-d2').textContent = data.p2_desc;
+            
+            document.getElementById('about-t3').textContent = data.p3_title;
+            document.getElementById('about-d3').textContent = data.p3_desc;
+            
+            document.getElementById('about-t4').textContent = data.p4_title;
+            document.getElementById('about-d4').textContent = data.p4_desc;
+            
+            // 관심 분야 삽입
             document.getElementById('about-interests').textContent = data.interests;
         }
     } catch (error) {
