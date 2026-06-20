@@ -420,6 +420,8 @@ footer span {
 .proj-actions { display: flex; gap: 0.5rem; margin-top: 0.75rem; }
 .act-link { font-size: 0.67rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; padding: 0.28rem 0.65rem; border: 1px solid var(--border-card); border-radius: 4px; transition: all 0.18s; }
 .act-link:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-dim); }
+.act-linkResume { font-size: 0.8rem; letter-spacing: 0.06em; color: var(--text-dim); text-decoration: none; padding: 0.34rem 0.7rem; border: 1px solid var(--border-card); border-radius: 4.5px; transition: all 0.18s; }
+.act-linkResume:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-dim); }
 .skill-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
 .sk { font-size: 0.73rem; padding: 0.55rem 0.8rem; background: rgba(255,255,255,0.025); border: 1px solid var(--border-card); border-radius: 5px; color: var(--text-dim); transition: all 0.15s; }
 .sk:hover { color: var(--accent); border-color: var(--border); }
@@ -678,4 +680,20 @@ footer span {
 
 .calendar table.ContributionCalendar-grid td {
     border-radius: 2px !important;
+}
+
+/* ─────────────────────────────────────────
+   소개글(About) 단락별 레이아웃 설정
+───────────────────────────────────────── */
+
+.about-block {
+    margin-bottom: 1.8rem;
+}
+
+.about-sub {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--accent); /* 포인트 컬러 (민트색) 적용 */
+    margin-bottom: 0.5rem;
+    font-weight: 500;
 }
