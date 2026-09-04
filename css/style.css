@@ -177,6 +177,12 @@ body::before {
     transition: border-color 0.2s, color 0.2s, background 0.2s;
 }
 
+.pill-row {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
 .pill svg { 
     width: 1.1rem;
     height: 1.1rem; 
