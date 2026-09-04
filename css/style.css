@@ -436,43 +436,6 @@ footer span {
 .tl-detail { font-size: 0.8rem; color: var(--text-dim); margin-top: 0.5rem; line-height: 1.6; }
 
 /* ─────────────────────────────────────────
-   7. Responsive
-───────────────────────────────────────── */
-@media (max-width: 700px) {
-    .grid { grid-template-columns: 1fr 1fr; }
-    .blk:nth-child(4) { grid-column: span 1;}
-    .blk:nth-child(5) { grid-column: span 2;}
-    .hero-name { font-size: 3.2rem; }
-    
-    .hero-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1.5rem;
-    }
-    .hero-video-wrap {
-        max-width: 100%;
-    }
-}
-
-@media (max-width: 440px) {
-    .wrap { padding: 0 1.2rem; }
-    .grid { grid-template-columns: 1fr; }
-    .blk:nth-child(2), .blk:nth-child(3) { grid-column: span 1; }
-    .sheet-head { padding: 1.2rem 1.2rem 1rem; }
-    .sheet-body { padding: 1.2rem 1.2rem 2.5rem; }
-    
-    .hero-profile-wrap {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-    }
-    .profile-pic {
-        width: 80px;
-        height: 80px;
-    }
-}
-
-/* ─────────────────────────────────────────
    8. Profile Layout & Skill List
 ───────────────────────────────────────── */
 
@@ -696,4 +659,117 @@ footer span {
     color: var(--accent); /* 포인트 컬러 (민트색) 적용 */
     margin-bottom: 0.5rem;
     font-weight: 500;
+}
+/* ─────────────────────────────────────────
+   9. Print / PDF
+   화면에서는 모달로 감춰진 내용을 인쇄 시엔
+   문서 흐름에 펼쳐서 한 장의 이력서로 출력한다.
+───────────────────────────────────────── */
+@media print {
+
+    /* 색 반전 — 다크 테마를 그대로 인쇄하면 잉크만 먹고 가독성이 나쁘다 */
+    :root {
+        --bg:          #ffffff;
+        --bg-card:     #ffffff;
+        --modal-bg:    #ffffff;
+        --text:        #111111;
+        --text-dim:    #333333;
+        --text-muted:  #666666;
+        --accent:      #0a7b62;
+        --accent-dim:  transparent;
+        --border:      #bbbbbb;
+        --border-card: #dddddd;
+    }
+
+    html, body {
+        background: #fff !important;
+        color: #111 !important;
+    }
+
+    .wrap { max-width: 100%; padding: 0; }
+
+    /* 애니메이션으로 opacity:0 상태에 머물러 있는 요소들을 전부 보이게 */
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    /* 인쇄에 불필요한 요소 숨김 */
+    .hero-video-container,      /* 유튜브 iframe은 종이에 의미 없음 */
+    .grid,                      /* 섹션 탐색 카드 — 내용이 아래 펼쳐지므로 불필요 */
+    .sec-label,
+    .btn-close,
+    .card-arrow,
+    .calendar,                  /* GitHub 잔디 — 외부 스크립트라 인쇄 시 깨짐 */
+    footer {
+        display: none !important;
+    }
+
+    /* 핵심: 모달을 고정 오버레이가 아니라 일반 문서 블록으로 전환 */
+    .overlay {
+        position: static !important;
+        display: block !important;
+        inset: auto;
+        background: none !important;
+        padding: 0;
+        pointer-events: auto;
+        z-index: auto;
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    .sheet {
+        max-width: 100% !important;
+        max-height: none !important;
+        width: 100%;
+        border: none !important;
+        border-radius: 0;
+        display: block !important;
+        margin: 0 0 1.4rem;
+    }
+
+    .sheet-head {
+        padding: 0 0 0.5rem;
+        border-bottom: 1.5px solid #333 !important;
+        margin-bottom: 1rem;
+        page-break-after: avoid;
+        break-after: avoid;
+    }
+
+    .sheet-title { font-size: 1.2rem; }
+
+    .sheet-body {
+        overflow: visible !important;
+        max-height: none !important;
+        padding: 0;
+    }
+
+    /* 항목이 페이지 경계에서 잘리지 않게 */
+    .proj, .skill-item, .tl-item, .m-section, .about-block {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    /* 배경색 있는 카드류는 테두리만 남긴다 */
+    .proj, .skill-item, .sk {
+        background: none !important;
+        border: 1px solid #ccc !important;
+    }
+
+    /* 헤더 축소 — 첫 페이지 상단을 사진이 다 먹지 않게 */
+    .hero { margin-bottom: 1.2rem; }
+    .profile-pic { width: 95px !important; height: 95px !important; }
+    .hero-name { font-size: 2rem; }
+    .hero-header { margin-bottom: 0.8rem; }
+
+    /* 링크는 밑줄 없이, URL은 병기하지 않음(이미 본문에 있음) */
+    a { text-decoration: none !important; color: #111 !important; }
+    .pill { border: 1px solid #ccc !important; }
+
+    @page { margin: 14mm 12mm; }
 }
