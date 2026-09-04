@@ -705,10 +705,33 @@ footer span {
     .sec-label,
     .btn-close,
     .card-arrow,
-    .calendar,                  /* GitHub 잔디 — 외부 스크립트라 인쇄 시 깨짐 */
     footer {
         display: none !important;
     }
+
+    /* 잔디·게임잡 링크는 제목(.m-label)까지 같이 숨겨야 하므로
+       부모 .m-section을 통째로 제거한다 */
+    .m-section:has(.calendar),
+    .m-section:has(.act-linkResume) {
+        display: none !important;
+    }
+    /* :has() 미지원 브라우저 폴백 — 최소한 내용물은 감춘다 */
+    .calendar, .act-linkResume { display: none !important; }
+
+    /* 첫 페이지 상단 여백 축소 — 영상을 숨기면서 생긴 빈 공간 제거 */
+    .hero { padding: 0 0 1rem !important; }
+    .hero-bio-row { margin-bottom: 0 !important; }
+
+    /* 헤더 다음에 곧바로 본문이 이어지도록 강제 개행 방지 */
+    .hero, .hero-header, .hero-bio-row {
+        page-break-after: auto !important;
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    /* 모달(=본문 섹션)은 첫 장부터 이어 붙인다 */
+    #modal-container { page-break-before: auto !important; }
+    .overlay:first-child { page-break-before: auto !important; }
 
     /* 핵심: 모달을 고정 오버레이가 아니라 일반 문서 블록으로 전환 */
     .overlay {
