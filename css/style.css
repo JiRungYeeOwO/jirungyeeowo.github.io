@@ -684,7 +684,12 @@ footer span {
     html, body {
         background: #fff !important;
         color: #111 !important;
+        min-height: 0 !important;
     }
+
+    /* 그레인 텍스처·앰비언트 글로우는 position:fixed 라
+       인쇄 시 페이지마다 겹쳐 찍히므로 제거 */
+    body::before, body::after { display: none !important; }
 
     .wrap { max-width: 100%; padding: 0; }
 
@@ -742,8 +747,6 @@ footer span {
         padding: 0;
         pointer-events: auto;
         z-index: auto;
-        page-break-inside: avoid;
-        break-inside: avoid;
     }
 
     .sheet {
@@ -772,8 +775,10 @@ footer span {
         padding: 0;
     }
 
-    /* 항목이 페이지 경계에서 잘리지 않게 */
-    .proj, .skill-item, .tl-item, .m-section, .about-block {
+    /* 짧은 항목만 페이지 경계에서 잘리지 않게 한다.
+       긴 블록(.overlay, .m-section)에 avoid를 걸면 통째로 다음 장으로
+       밀려나면서 앞 페이지가 통째로 비는 문제가 생긴다. */
+    .proj, .skill-item, .tl-item, .about-block {
         page-break-inside: avoid;
         break-inside: avoid;
     }
