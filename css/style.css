@@ -666,6 +666,13 @@ footer span {
     margin-bottom: 0.5rem;
     font-weight: 500;
 }
+
+/* about.json 의 \n 을 실제 줄바꿈으로 렌더링한다.
+   textContent 로 넣기 때문에 CSS 가 없으면 개행이 공백 하나로 합쳐진다.
+   pre-line 은 연속 공백은 합치고 줄바꿈만 살리므로 JSON 들여쓰기 영향이 없다. */
+.about-block .m-text {
+    white-space: pre-line;
+}
 /* ─────────────────────────────────────────
    9. Print / PDF
    화면에서는 모달로 감춰진 내용을 인쇄 시엔
